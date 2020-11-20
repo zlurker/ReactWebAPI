@@ -4,7 +4,7 @@ namespace Pathfinding_API.Models
     using System.Data.Entity;
     using System.Linq;
 
-    public class AStarPathfinder : DbContext
+    public class AStarPathfinderContext : DbContext
     {
         // Your context has been configured to use a 'AStarPathfinder' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
@@ -12,8 +12,8 @@ namespace Pathfinding_API.Models
         // 
         // If you wish to target a different database and/or database provider, modify the 'AStarPathfinder' 
         // connection string in the application configuration file.
-        public AStarPathfinder()
-            : base("name=AStarPathfinder")
+        public AStarPathfinderContext()
+            : base("name=AStarPathfinderContext")
         {
         }
 

@@ -8,21 +8,32 @@ namespace Pathfinding_API.Controllers
 {
     public class NodeManagementController : ApiController
     {
-        private Pathfinding_API.Models.AStarPathfinder db = new Models.AStarPathfinder();
+        private Pathfinding_API.Models.AStarPathfinderContext db = new Models.AStarPathfinderContext();
 
         [Route("SetNode")]
         [HttpPost]
         public IHttpActionResult SetNode(int nodeId, string nodeState)
         {
-            Models.NodeData data = db.NodeData.Find(nodeId);
+            Models.NodeData[] dbData = db.NodeData.Where(x => x.NODE_ID == nodeId).ToArray();
 
-            if (data == null)
+            System.Data.Entity.EntityState state;
+            Models.NodeData data;
+
+            if (dbData.Length == 0)
+            {
                 data = new Models.NodeData();
+                state = System.Data.Entity.EntityState.Added;
+            }
+            else
+            {
+                data = dbData[0];
+                state = System.Data.Entity.EntityState.Modified;
+            }
 
             data.NODE_ID = nodeId;
             data.NODE_TYPE = nodeState;
 
-            db.Entry(data).State = System.Data.Entity.EntityState.Modified;
+            db.Entry(data).State =state;
             db.SaveChanges();
 
             return Ok($"{nodeId} set as {nodeState}");
