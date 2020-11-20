@@ -83,3 +83,7 @@ C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\obj\Debug\Pat
 C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\obj\Debug\Pathfinding API.csproj.CopyComplete
 C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\obj\Debug\Pathfinding API.dll
 C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\obj\Debug\Pathfinding API.pdb
+C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\EntityFramework.dll
+C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\EntityFramework.SqlServer.dll
+C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\EntityFramework.xml
+C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\EntityFramework.SqlServer.xml
