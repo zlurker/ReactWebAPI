@@ -14,19 +14,16 @@ namespace Pathfinding_API.Controllers
         [HttpPost]
         public IHttpActionResult SetNode(int nodeId, string nodeState)
         {
-            Models.NodeData[] dbData = db.NodeData.Where(x => x.NODE_ID == nodeId).ToArray();
-
             System.Data.Entity.EntityState state;
-            Models.NodeData data;
+            Models.NodeData data = db.NodeData.Where(x => x.NODE_ID == nodeId).FirstOrDefault();
 
-            if (dbData.Length == 0)
+            if (data == null)
             {
                 data = new Models.NodeData();
                 state = System.Data.Entity.EntityState.Added;
             }
             else
             {
-                data = dbData[0];
                 state = System.Data.Entity.EntityState.Modified;
             }
 
@@ -38,6 +35,31 @@ namespace Pathfinding_API.Controllers
 
             return Ok($"{nodeId} set as {nodeState}");
         }
+
+        [Route("RemoveNode")]
+        public IHttpActionResult RemoveNode(int nodeId)
+        {
+            Models.NodeData data = db.NodeData.Where(x => x.NODE_ID == nodeId).FirstOrDefault();
+
+            if (data != null)
+            {
+                db.Entry(data).State = System.Data.Entity.EntityState.Deleted;
+                db.SaveChanges();
+                return Ok($"deleted {nodeId}");
+            }
+
+            return Ok($"{nodeId} does not exist");
+        }
+        
+        [Route("RemoveAllNodes")]
+        public IHttpActionResult RemoveAllNodes()
+        {
+            db.NodeData.RemoveRange(db.NodeData);
+            db.SaveChanges();
+
+            return Ok("All data deleted.");
+        }
+
 
         [Route("Testnode")]
         public IHttpActionResult Test()
