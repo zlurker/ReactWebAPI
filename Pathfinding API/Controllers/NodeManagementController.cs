@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
+using Newtonsoft.Json;
 
 namespace Pathfinding_API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class NodeManagementController : ApiController
     {
         private Pathfinding_API.Models.AStarPathfinderContext db = new Models.AStarPathfinderContext();
@@ -58,6 +61,12 @@ namespace Pathfinding_API.Controllers
             db.SaveChanges();
 
             return Ok("All data deleted.");
+        }
+
+        [Route("RetrieveAllNodes")]
+        public IHttpActionResult RetrieveAllNodes()
+        {         
+            return Ok(JsonConvert.SerializeObject(db.NodeData.ToArray()));
         }
 
 

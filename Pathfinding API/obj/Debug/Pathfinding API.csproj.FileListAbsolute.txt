@@ -87,3 +87,6 @@ C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\EntityFra
 C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\EntityFramework.SqlServer.dll
 C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\EntityFramework.xml
 C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\EntityFramework.SqlServer.xml
+C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\System.Web.Cors.dll
+C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\System.Web.Http.Cors.dll
+C:\Users\gabriel_chia\Source\Repos\Pathfinding API\Pathfinding API\bin\System.Web.Http.Cors.xml
